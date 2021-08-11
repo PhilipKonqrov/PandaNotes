@@ -6,24 +6,28 @@
 //
 
 import UIKit
-
+import CoreData
 class AddNoteVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textViewBottom: NSLayoutConstraint!
     @IBOutlet weak var textView: MyTextView!
     var isKeyboardAppear = false
-    var note: Note?
+    var noteIndex: Int?
+    var note: NoteEntity?
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textView.delegate = self
         keyboardObservers()
         
-        if note == nil {
-            note = Note(date: Date(), text: textView.attributedText)
+        if let index = noteIndex, index < Global.notes.count {
+            note = Global.notes[index]
+        } else {
+            note = NoteEntity(context: Global.coreDataContext)
         }
-        
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         textView.attributedText = note?.text
@@ -35,8 +39,15 @@ class AddNoteVC: UIViewController, UITextViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        guard let note = self.note else { return }
-        Global.notes.append(note)
+        
+        note?.text = textView.attributedText
+        note?.date = Date()
+        note?.id = UUID.init()
+        
+        // Save note obj to CoreData
+        try? Global.coreDataContext.save()
+        
+        // Refresh tableView in MainVC
         NotificationCenter.default.post(name: .refreshNotification, object: nil)
     }
     

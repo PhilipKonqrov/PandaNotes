@@ -6,17 +6,16 @@
 //
 
 import UIKit
-
+import CoreData
 class HomeVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let rowHeight: CGFloat = 80
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
-
+        
         setupNavBar()
     }
     
@@ -81,7 +80,7 @@ extension HomeVC:  UITableViewDelegate, UITableViewDataSource {
         let vc = st.instantiateViewController(withIdentifier: "addNoteVC") as! AddNoteVC
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .formSheet
-        vc.note = Global.notes[indexPath.row]
+        vc.noteIndex = indexPath.row
         present(vc, animated: true, completion: nil)
     }
 }
