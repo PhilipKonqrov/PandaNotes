@@ -146,21 +146,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cvc-xX-meG" customClass="MyTextView" customModule="PandaNotes" customModuleProvider="target">
-                                <rect key="frame" x="8" y="52" width="398" height="810"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cvc-xX-meG" customClass="NoteTextView" customModule="PandaNotes" customModuleProvider="target">
+                                <rect key="frame" x="8" y="108" width="398" height="754"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vp0-5f-dJP">
+                                <rect key="frame" x="0.0" y="60" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wcw-Hq-U6F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="979-Zo-Buf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vp0-5f-dJP" firstAttribute="top" secondItem="979-Zo-Buf" secondAttribute="top" constant="16" id="3K1-Da-6dO"/>
                             <constraint firstItem="Cvc-xX-meG" firstAttribute="leading" secondItem="979-Zo-Buf" secondAttribute="leading" constant="8" id="F3r-e7-CVh"/>
+                            <constraint firstItem="Cvc-xX-meG" firstAttribute="top" secondItem="vp0-5f-dJP" secondAttribute="bottom" constant="8" id="TQB-W8-hrd"/>
                             <constraint firstItem="979-Zo-Buf" firstAttribute="trailing" secondItem="Cvc-xX-meG" secondAttribute="trailing" constant="8" id="pIK-Ry-ReX"/>
-                            <constraint firstItem="Cvc-xX-meG" firstAttribute="top" secondItem="979-Zo-Buf" secondAttribute="top" constant="8" id="rTR-8o-aDF"/>
+                            <constraint firstItem="vp0-5f-dJP" firstAttribute="leading" secondItem="979-Zo-Buf" secondAttribute="leading" id="piJ-bR-QvC"/>
+                            <constraint firstItem="979-Zo-Buf" firstAttribute="trailing" secondItem="vp0-5f-dJP" secondAttribute="trailing" id="x5s-0e-gff"/>
                             <constraint firstItem="979-Zo-Buf" firstAttribute="bottom" secondItem="Cvc-xX-meG" secondAttribute="bottom" id="zbu-Dq-cQF"/>
                         </constraints>
                     </view>

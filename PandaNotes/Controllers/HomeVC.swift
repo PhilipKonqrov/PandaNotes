@@ -16,7 +16,7 @@ class HomeVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        setupNavBar()
+        customizeNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,21 +34,6 @@ class HomeVC: UIViewController {
         tableView.reloadData()
     }
     
-    func setupNavBar() {
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3607843137, green: 0.4196078431, blue: 0.9490196078, alpha: 1)
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        
-        let largeTitleAppearance = UINavigationBarAppearance()
-        largeTitleAppearance.configureWithOpaqueBackground()
-        largeTitleAppearance.backgroundColor = #colorLiteral(red: 0.3607843137, green: 0.4196078431, blue: 0.9490196078, alpha: 1)
-        largeTitleAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        largeTitleAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.standardAppearance = largeTitleAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = largeTitleAppearance
-    }
     
 }
 
@@ -75,6 +60,14 @@ extension HomeVC:  UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if Global.notes[indexPath.row].encrypted == true {
+            let alert = UIAlertController(title: "Error", message: "This note is encrypted!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         
         let st = UIStoryboard(name: "Home", bundle: nil)
         let vc = st.instantiateViewController(withIdentifier: "addNoteVC") as! AddNoteVC

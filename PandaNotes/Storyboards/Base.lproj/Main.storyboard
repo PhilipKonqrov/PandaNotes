@@ -13,13 +13,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="opn-wb-VKU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rhW-g5-VHm" customClass="CustomTabBar" customModule="PandaNotes" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="DYF-88-Qba" kind="relationship" relationship="viewControllers" id="zFA-vc-wxQ"/>
-                        <segue destination="9eE-Qn-vGx" kind="relationship" relationship="viewControllers" id="yqI-8t-nvQ"/>
-                        <segue destination="c8H-jQ-wn9" kind="relationship" relationship="viewControllers" id="u00-1A-oUf"/>
+                        <segue destination="gSj-nM-xuh" kind="relationship" relationship="viewControllers" id="V1e-fO-1Fg"/>
+                        <segue destination="Z3q-5a-XD9" kind="relationship" relationship="viewControllers" id="sak-hJ-OL3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQM-l0-isj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -36,25 +37,26 @@
             </objects>
             <point key="canvasLocation" x="662" y="-119"/>
         </scene>
-        <!--Menu-->
-        <scene sceneID="Oou-hB-arf">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Menu" id="9eE-Qn-vGx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LL7-4R-KNh"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mUm-kk-gEI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="685" y="11"/>
-        </scene>
         <!--Home-->
-        <scene sceneID="3WD-1s-apC">
+        <scene sceneID="80e-91-h7p">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="c8H-jQ-wn9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xkt-Zg-Ph8"/>
+                <viewControllerPlaceholder storyboardName="Home" id="gSj-nM-xuh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="TDx-dU-mty"/>
+                    <navigationItem key="navigationItem" id="HCu-qX-hbd"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EIp-An-ZiW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DRU-0f-nKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634" y="205"/>
+            <point key="canvasLocation" x="783" y="34"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="OKp-ZK-WgD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Menu" id="Z3q-5a-XD9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ePL-dv-3Fe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W1T-a4-R5q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="744" y="152"/>
         </scene>
     </scenes>
 </document>

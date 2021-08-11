@@ -7,10 +7,10 @@
 
 import UIKit
 import CoreData
-class AddNoteVC: UIViewController, UITextViewDelegate {
+class AddNoteVC: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var textViewBottom: NSLayoutConstraint!
-    @IBOutlet weak var textView: MyTextView!
+    @IBOutlet weak var textView: NoteTextView!
     var isKeyboardAppear = false
     var noteIndex: Int?
     var note: NoteEntity?
@@ -19,36 +19,41 @@ class AddNoteVC: UIViewController, UITextViewDelegate {
         
         textView.delegate = self
         keyboardObservers()
+        textView.noteIndex = noteIndex
         
         if let index = noteIndex, index < Global.notes.count {
             note = Global.notes[index]
-        } else {
-            note = NoteEntity(context: Global.coreDataContext)
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         textView.attributedText = note?.text
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        note?.text = textView.attributedText
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        textView.becomeFirstResponder()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        
-        note?.text = textView.attributedText
-        note?.date = Date()
-        note?.id = UUID.init()
-        
-        // Save note obj to CoreData
-        try? Global.coreDataContext.save()
-        
-        // Refresh tableView in MainVC
-        NotificationCenter.default.post(name: .refreshNotification, object: nil)
+    
+    // MARK: UIImagePickerControllerDelegate methods
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            // Process pasted image
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = image
+            
+            let oldWidth = imageAttachment.image!.size.width;
+            let scaleFactor = oldWidth / (textView.frame.size.width - 20); //for the padding inside the textView
+            imageAttachment.image = UIImage(cgImage: imageAttachment.image!.cgImage!, scale: scaleFactor, orientation: .up)
+            imageAttachment.image = imageAttachment.image?.fixOrientation()
+            let attString = NSAttributedString(attachment: imageAttachment)
+            
+            textView.textStorage.insert(attString, at: textView.selectedRange.location)
+        }
+        dismiss(animated: true, completion: nil)
     }
     
 }

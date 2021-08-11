@@ -23,6 +23,9 @@
 		D4C6437126C163A500B518EA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437026C163A400B518EA /* Note.swift */; };
 		D4C6437326C1668100B518EA /* AddNoteVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437226C1668100B518EA /* AddNoteVC + Keyboard.swift */; };
 		D4C6437626C16AF400B518EA /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437526C16AF400B518EA /* Global.swift */; };
+		D4C6437A26C3E9C700B518EA /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437926C3E9C400B518EA /* MenuVC.swift */; };
+		D4C6437D26C46AA900B518EA /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437C26C46AA800B518EA /* NoteTextView.swift */; };
+		D4C6438026C4759B00B518EA /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C6437F26C4759B00B518EA /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		D4C6437026C163A400B518EA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		D4C6437226C1668100B518EA /* AddNoteVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNoteVC + Keyboard.swift"; sourceTree = "<group>"; };
 		D4C6437526C16AF400B518EA /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		D4C6437926C3E9C400B518EA /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		D4C6437C26C46AA800B518EA /* NoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
+		D4C6437F26C4759B00B518EA /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C6438026C4759B00B518EA /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +69,7 @@
 			children = (
 				D4C6433D26BCD53000B518EA /* PandaNotes */,
 				D4C6433C26BCD53000B518EA /* Products */,
+				D4C6437E26C4759B00B518EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +139,7 @@
 			children = (
 				D4C6436126BCE92A00B518EA /* HomeVC.swift */,
 				D4C6437726C394DB00B518EA /* AddNoteVC */,
+				D4C6437B26C3EFAC00B518EA /* MenuVC */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -149,8 +158,25 @@
 			isa = PBXGroup;
 			children = (
 				D4C6435D26BCDA7000B518EA /* CustomTabBar.swift */,
+				D4C6437C26C46AA800B518EA /* NoteTextView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D4C6437B26C3EFAC00B518EA /* MenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				D4C6437926C3E9C400B518EA /* MenuVC.swift */,
+			);
+			path = MenuVC;
+			sourceTree = "<group>";
+		};
+		D4C6437E26C4759B00B518EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4C6437F26C4759B00B518EA /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,9 +256,11 @@
 				D4C6436E26BFFC1900B518EA /* AddNoteVC.swift in Sources */,
 				D4C6436226BCE92A00B518EA /* HomeVC.swift in Sources */,
 				D4C6434926BCD53000B518EA /* PandaNotes.xcdatamodeld in Sources */,
+				D4C6437A26C3E9C700B518EA /* MenuVC.swift in Sources */,
 				D4C6437326C1668100B518EA /* AddNoteVC + Keyboard.swift in Sources */,
 				D4C6437626C16AF400B518EA /* Global.swift in Sources */,
 				D4C6437126C163A500B518EA /* Note.swift in Sources */,
+				D4C6437D26C46AA900B518EA /* NoteTextView.swift in Sources */,
 				D4C6436A26BFE8D500B518EA /* NoteCell.swift in Sources */,
 				D4C6433F26BCD53000B518EA /* AppDelegate.swift in Sources */,
 				D4C6434126BCD53000B518EA /* SceneDelegate.swift in Sources */,

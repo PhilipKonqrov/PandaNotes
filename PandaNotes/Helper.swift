@@ -22,65 +22,60 @@ class Helper {
     }
 }
 
-class MyTextView: UITextView {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        createToolbar()
-    }
-    
-    private func createToolbar() {
-        let saveBtn = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
-        let addImageBtn = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(addImage))
-        addImageBtn.image = UIImage(systemName:"camera")
-        saveBtn.tintColor = #colorLiteral(red: 0.2112838166, green: 0.2112838166, blue: 0.2112838166, alpha: 1)
-        addImageBtn.tintColor = #colorLiteral(red: 0.2112838166, green: 0.2112838166, blue: 0.2112838166, alpha: 1)
-        let toolbar: UIToolbar = UIToolbar(frame:CGRect(x:0, y:0, width:100, height:100))
-        toolbar.barStyle = .default
-        toolbar.items = [
-            saveBtn,
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            addImageBtn
-        ]
-        toolbar.sizeToFit()
-        toolbar.barTintColor = #colorLiteral(red: 0.8243550086, green: 0.8243550086, blue: 0.8243550086, alpha: 1)
-        self.inputAccessoryView = toolbar
-    }
-    
-    @objc func save() {
-        //change keyboard type to number
-        print("saving")
-    }
-    @objc func addImage() {
-        //change keyboard type to number
-        print("addImage")
-    }
-    
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        if action == #selector(paste(_:)) && UIPasteboard.general.image != nil {
-            return true
-        } else {
-            return super.canPerformAction(action, withSender: sender)
-        }
-    }
-    
-    override func paste(_ sender: Any?) {
-        super.paste(sender)
-        if let image = UIPasteboard.general.image {
-            // Process pasted image
-            let imageAttachment = NSTextAttachment()
-            imageAttachment.image = image
-            
-            let oldWidth = imageAttachment.image!.size.width;
-            let scaleFactor = oldWidth / (self.frame.size.width - 20); //for the padding inside the textView
-            imageAttachment.image = UIImage(cgImage: imageAttachment.image!.cgImage!, scale: scaleFactor, orientation: .up)
-            
-            let attString = NSAttributedString(attachment: imageAttachment)
-            
-            self.textStorage.insert(attString, at: self.selectedRange.location)
-        } 
-    }
-}
+
 
 extension Notification.Name {
     public static let refreshNotification = Notification.Name(rawValue: "refreshHomeVC")
+}
+extension UIImage {
+    func fixOrientation() -> UIImage {
+        if self.imageOrientation == UIImage.Orientation.up {
+            return self
+        }
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        if let normalizedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            return normalizedImage
+        } else {
+            return self
+        }
+    }
+}
+extension NSAttributedString {
+
+    convenience init(data: Data, documentType: DocumentType, encoding: String.Encoding = .utf8) throws {
+        try self.init(attributedString: .init(data: data, options: [.documentType: documentType, .characterEncoding: encoding.rawValue], documentAttributes: nil))
+    }
+
+    func data(_ documentType: DocumentType) -> Data {
+        // Discussion
+        // Raises an rangeException if any part of range lies beyond the end of the receiver’s characters.
+        // Therefore passing a valid range allow us to force unwrap the result
+        try! data(from: .init(location: 0, length: length),
+                  documentAttributes: [.documentType: documentType])
+    }
+
+    var text: Data { data(.plain) }
+    var html: Data { data(.html)  }
+    var rtf:  Data { data(.rtf)   }
+    var rtfd: Data { data(.rtfd)  }
+}
+
+extension UIViewController {
+    func customizeNavBar() {
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3607843137, green: 0.4196078431, blue: 0.9490196078, alpha: 1)
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
+        let largeTitleAppearance = UINavigationBarAppearance()
+        largeTitleAppearance.configureWithOpaqueBackground()
+        largeTitleAppearance.backgroundColor = #colorLiteral(red: 0.3607843137, green: 0.4196078431, blue: 0.9490196078, alpha: 1)
+        largeTitleAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        largeTitleAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.standardAppearance = largeTitleAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = largeTitleAppearance
+    }
 }
