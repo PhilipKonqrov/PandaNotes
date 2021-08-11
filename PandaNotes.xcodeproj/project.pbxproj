@@ -17,6 +17,12 @@
 		D4C6435826BCD70A00B518EA /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C6435726BCD70A00B518EA /* Menu.storyboard */; };
 		D4C6435E26BCDA7000B518EA /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6435D26BCDA7000B518EA /* CustomTabBar.swift */; };
 		D4C6436226BCE92A00B518EA /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6436126BCE92A00B518EA /* HomeVC.swift */; };
+		D4C6436A26BFE8D500B518EA /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6436926BFE8D400B518EA /* NoteCell.swift */; };
+		D4C6436C26BFF99E00B518EA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6436B26BFF99E00B518EA /* Helper.swift */; };
+		D4C6436E26BFFC1900B518EA /* AddNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6436D26BFFC1900B518EA /* AddNoteVC.swift */; };
+		D4C6437126C163A500B518EA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437026C163A400B518EA /* Note.swift */; };
+		D4C6437326C1668100B518EA /* AddNoteVC + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437226C1668100B518EA /* AddNoteVC + Keyboard.swift */; };
+		D4C6437626C16AF400B518EA /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437526C16AF400B518EA /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		D4C6435726BCD70A00B518EA /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		D4C6435D26BCDA7000B518EA /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		D4C6436126BCE92A00B518EA /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		D4C6436926BFE8D400B518EA /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		D4C6436B26BFF99E00B518EA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		D4C6436D26BFFC1900B518EA /* AddNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVC.swift; sourceTree = "<group>"; };
+		D4C6437026C163A400B518EA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		D4C6437226C1668100B518EA /* AddNoteVC + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNoteVC + Keyboard.swift"; sourceTree = "<group>"; };
+		D4C6437526C16AF400B518EA /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +78,15 @@
 			children = (
 				D4C6433E26BCD53000B518EA /* AppDelegate.swift */,
 				D4C6434026BCD53000B518EA /* SceneDelegate.swift */,
-				D4C6436126BCE92A00B518EA /* HomeVC.swift */,
+				D4C6436F26C1637E00B518EA /* Model */,
+				D4C6437826C3950E00B518EA /* Views */,
+				D4C6437426C167E900B518EA /* Controllers */,
 				D4C6435C26BCD99E00B518EA /* Storyboards */,
 				D4C6435926BCD8D700B518EA /* Resources */,
 				D4C6435A26BCD8EA00B518EA /* Supporting Files */,
 				D4C6434F26BCD53800B518EA /* Info.plist */,
 				D4C6434726BCD53000B518EA /* PandaNotes.xcdatamodeld */,
-				D4C6435D26BCDA7000B518EA /* CustomTabBar.swift */,
+				D4C6436B26BFF99E00B518EA /* Helper.swift */,
 			);
 			path = PandaNotes;
 			sourceTree = "<group>";
@@ -101,6 +115,42 @@
 				D4C6435726BCD70A00B518EA /* Menu.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D4C6436F26C1637E00B518EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4C6437026C163A400B518EA /* Note.swift */,
+				D4C6437526C16AF400B518EA /* Global.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D4C6437426C167E900B518EA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4C6436126BCE92A00B518EA /* HomeVC.swift */,
+				D4C6437726C394DB00B518EA /* AddNoteVC */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D4C6437726C394DB00B518EA /* AddNoteVC */ = {
+			isa = PBXGroup;
+			children = (
+				D4C6436D26BFFC1900B518EA /* AddNoteVC.swift */,
+				D4C6437226C1668100B518EA /* AddNoteVC + Keyboard.swift */,
+				D4C6436926BFE8D400B518EA /* NoteCell.swift */,
+			);
+			path = AddNoteVC;
+			sourceTree = "<group>";
+		};
+		D4C6437826C3950E00B518EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4C6435D26BCDA7000B518EA /* CustomTabBar.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,8 +226,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C6435E26BCDA7000B518EA /* CustomTabBar.swift in Sources */,
+				D4C6436C26BFF99E00B518EA /* Helper.swift in Sources */,
+				D4C6436E26BFFC1900B518EA /* AddNoteVC.swift in Sources */,
 				D4C6436226BCE92A00B518EA /* HomeVC.swift in Sources */,
 				D4C6434926BCD53000B518EA /* PandaNotes.xcdatamodeld in Sources */,
+				D4C6437326C1668100B518EA /* AddNoteVC + Keyboard.swift in Sources */,
+				D4C6437626C16AF400B518EA /* Global.swift in Sources */,
+				D4C6437126C163A500B518EA /* Note.swift in Sources */,
+				D4C6436A26BFE8D500B518EA /* NoteCell.swift in Sources */,
 				D4C6433F26BCD53000B518EA /* AppDelegate.swift in Sources */,
 				D4C6434126BCD53000B518EA /* SceneDelegate.swift in Sources */,
 			);

@@ -73,7 +73,13 @@ class CustomTabBar: UITabBar {
     }
     
     @objc func buttonPress(_ button: UIButton?) {
-        print("works")
+        if let topVC = Helper.topVC() {
+            let st = UIStoryboard(name: "Home", bundle: nil)
+            let vc = st.instantiateViewController(withIdentifier: "addNoteVC") as! AddNoteVC
+            vc.modalTransitionStyle = .coverVertical
+            vc.modalPresentationStyle = .formSheet
+            topVC.present(vc, animated: true, completion: nil)
+        }
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
