@@ -26,6 +26,8 @@
 		D4C6437A26C3E9C700B518EA /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437926C3E9C400B518EA /* MenuVC.swift */; };
 		D4C6437D26C46AA900B518EA /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6437C26C46AA800B518EA /* NoteTextView.swift */; };
 		D4C6438026C4759B00B518EA /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C6437F26C4759B00B518EA /* LocalAuthentication.framework */; };
+		D4C6438226C494DC00B518EA /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6438126C494DC00B518EA /* MenuCell.swift */; };
+		D4C6438426C4983800B518EA /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6438326C4983800B518EA /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		D4C6437926C3E9C400B518EA /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		D4C6437C26C46AA800B518EA /* NoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
 		D4C6437F26C4759B00B518EA /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		D4C6438126C494DC00B518EA /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		D4C6438326C4983800B518EA /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 			children = (
 				D4C6437026C163A400B518EA /* Note.swift */,
 				D4C6437526C16AF400B518EA /* Global.swift */,
+				D4C6438326C4983800B518EA /* MenuItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C6436126BCE92A00B518EA /* HomeVC.swift */,
+				D4C6436926BFE8D400B518EA /* NoteCell.swift */,
 				D4C6437726C394DB00B518EA /* AddNoteVC */,
 				D4C6437B26C3EFAC00B518EA /* MenuVC */,
 			);
@@ -149,7 +155,6 @@
 			children = (
 				D4C6436D26BFFC1900B518EA /* AddNoteVC.swift */,
 				D4C6437226C1668100B518EA /* AddNoteVC + Keyboard.swift */,
-				D4C6436926BFE8D400B518EA /* NoteCell.swift */,
 			);
 			path = AddNoteVC;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C6437926C3E9C400B518EA /* MenuVC.swift */,
+				D4C6438126C494DC00B518EA /* MenuCell.swift */,
 			);
 			path = MenuVC;
 			sourceTree = "<group>";
@@ -251,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C6438226C494DC00B518EA /* MenuCell.swift in Sources */,
 				D4C6435E26BCDA7000B518EA /* CustomTabBar.swift in Sources */,
 				D4C6436C26BFF99E00B518EA /* Helper.swift in Sources */,
 				D4C6436E26BFFC1900B518EA /* AddNoteVC.swift in Sources */,
@@ -259,6 +266,7 @@
 				D4C6437A26C3E9C700B518EA /* MenuVC.swift in Sources */,
 				D4C6437326C1668100B518EA /* AddNoteVC + Keyboard.swift in Sources */,
 				D4C6437626C16AF400B518EA /* Global.swift in Sources */,
+				D4C6438426C4983800B518EA /* MenuItem.swift in Sources */,
 				D4C6437126C163A500B518EA /* Note.swift in Sources */,
 				D4C6437D26C46AA900B518EA /* NoteTextView.swift in Sources */,
 				D4C6436A26BFE8D500B518EA /* NoteCell.swift in Sources */,

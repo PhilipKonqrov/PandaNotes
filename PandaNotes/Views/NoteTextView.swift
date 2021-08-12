@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreData
+import AVKit
 class NoteTextView: UITextView {
     var noteIndex: Int?
     private var note: NoteEntity?
@@ -57,6 +58,7 @@ class NoteTextView: UITextView {
             self.note?.text = textToSave
             self.note?.date = Date()
             self.note?.id = UUID.init()
+            self.note?.encrypted = false
             try? self.privateContext.save()
             
             DispatchQueue.main.async {
@@ -67,33 +69,15 @@ class NoteTextView: UITextView {
         }
     }
     @objc func addImage() {
-        //change keyboard type to number
-        showOptions()
-    }
-    
-    
-    private func showOptions() {
         guard let topVC = Helper.topVC() as? AddNoteVC else { return }
-        let alert = UIAlertController(title: "Add photo", message: "Please Select an Option", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Take photo", style: .default , handler:{ (UIAlertAction) in
-            
-        }))
-        alert.addAction(UIAlertAction(title: "Choose from album", style: .default , handler:{ (UIAlertAction) in
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-                let picker = UIImagePickerController()
-                picker.delegate = topVC
-                picker.sourceType = UIImagePickerController.SourceType.photoLibrary;
-                //imag.mediaTypes = [kUTTypeImage];
-                picker.allowsEditing = false
-                topVC.present(picker, animated: true, completion: nil)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        
-        
-        topVC.present(alert, animated: true, completion: nil)
+        let picker =  UIImagePickerController()
+        picker.delegate = topVC
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            picker.sourceType = UIImagePickerController.SourceType.photoLibrary;
+            picker.allowsEditing = false
+            topVC.present(picker, animated: true, completion: nil)
+        }
     }
-    
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if action == #selector(paste(_:)) && UIPasteboard.general.image != nil {

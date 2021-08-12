@@ -19,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m95-ER-KIz">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteCell" rowHeight="113" id="cBv-fR-WMz" customClass="NoteCell" customModule="PandaNotes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="113"/>
@@ -125,11 +125,11 @@
                         <constraints>
                             <constraint firstItem="m95-ER-KIz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5Ak-8G-a3F"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="m95-ER-KIz" secondAttribute="bottom" id="N6P-3b-Oyi"/>
-                            <constraint firstItem="m95-ER-KIz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="dbC-KK-VWV"/>
                             <constraint firstItem="m95-ER-KIz" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="gQ4-vf-fpL"/>
+                            <constraint firstItem="m95-ER-KIz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="q8e-cx-NNf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="h55-1N-Q31"/>
+                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="never" id="h55-1N-Q31"/>
                     <connections>
                         <outlet property="tableView" destination="m95-ER-KIz" id="8SD-tW-944"/>
                     </connections>

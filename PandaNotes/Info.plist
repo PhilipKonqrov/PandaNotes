@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We are using a camera to enable you to attach pictures to notes</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We are using a photo library to enable you to attach pictures to notes</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

@@ -34,7 +34,6 @@ class HomeVC: UIViewController {
         tableView.reloadData()
     }
     
-    
 }
 
 // MARK: Table view delegate methods

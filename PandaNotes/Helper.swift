@@ -42,40 +42,33 @@ extension UIImage {
         }
     }
 }
-extension NSAttributedString {
-
-    convenience init(data: Data, documentType: DocumentType, encoding: String.Encoding = .utf8) throws {
-        try self.init(attributedString: .init(data: data, options: [.documentType: documentType, .characterEncoding: encoding.rawValue], documentAttributes: nil))
-    }
-
-    func data(_ documentType: DocumentType) -> Data {
-        // Discussion
-        // Raises an rangeException if any part of range lies beyond the end of the receiver’s characters.
-        // Therefore passing a valid range allow us to force unwrap the result
-        try! data(from: .init(location: 0, length: length),
-                  documentAttributes: [.documentType: documentType])
-    }
-
-    var text: Data { data(.plain) }
-    var html: Data { data(.html)  }
-    var rtf:  Data { data(.rtf)   }
-    var rtfd: Data { data(.rtfd)  }
-}
 
 extension UIViewController {
     func customizeNavBar() {
+        guard let navBar = navigationController?.navigationBar else { return }
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3607843137, green: 0.4196078431, blue: 0.9490196078, alpha: 1)
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.3607843137, green: 0.4196078431, blue: 0.9490196078, alpha: 1)
         
-        let largeTitleAppearance = UINavigationBarAppearance()
-        largeTitleAppearance.configureWithOpaqueBackground()
-        largeTitleAppearance.backgroundColor = #colorLiteral(red: 0.3607843137, green: 0.4196078431, blue: 0.9490196078, alpha: 1)
-        largeTitleAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        largeTitleAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.standardAppearance = largeTitleAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = largeTitleAppearance
+        let contentView = UIView(frame: navBar.frame)
+        let frame = CGRect(x: 8, y: 0, width: 200, height: 40)
+        let tlabel = UILabel(frame: frame)
+        tlabel.text = self.title
+        tlabel.textColor = UIColor.white
+        tlabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+        tlabel.backgroundColor = UIColor.clear
+        tlabel.adjustsFontSizeToFitWidth = true
+        tlabel.textAlignment = .left
+        contentView.addSubview(tlabel)
+        self.navigationItem.titleView = contentView
+        
+        if #available(iOS 11.0, *) {
+            navBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: .heavy)]
+        }
     }
+    
 }
