@@ -28,7 +28,10 @@ class NoteCell: UITableViewCell {
         guard Global.notes.count > rowIndex else { return }
         let note = Global.notes[rowIndex]
         titleText.text = note.text?.string
-        dateText.text = stringFromDate(date: note.date!)
+        if let date = note.date {
+            dateText.text = stringFromDate(date: date)
+        }
+        
     }
     
     private func stringFromDate(date: Date) -> String {

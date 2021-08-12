@@ -38,7 +38,7 @@ class NoteTextView: UITextView {
     
     @objc func save() {
         //change keyboard type to number
-        print("saving")
+        if self.attributedText.length == .zero { return }
         
         privateContext.persistentStoreCoordinator = Global.coreDataContext.persistentStoreCoordinator
         
@@ -51,10 +51,6 @@ class NoteTextView: UITextView {
         let textToSave = self.attributedText
         
         privateContext.perform {
-            // Code in here is now running "in the background" and can safely
-            // do anything in privateContext.
-            // This is where you will create your entities and save them.
-            
             self.note?.text = textToSave
             self.note?.date = Date()
             self.note?.id = UUID.init()
@@ -64,6 +60,10 @@ class NoteTextView: UITextView {
             DispatchQueue.main.async {
                 // Refresh tableView in MainVC
                 NotificationCenter.default.post(name: .refreshNotification, object: nil)
+                
+                if let topVC = Helper.topVC() as? AddNoteVC {
+                    topVC.dismiss(animated: true, completion: nil)
+                }
             }
             
         }
